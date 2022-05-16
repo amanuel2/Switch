@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;700&display=swap');
+
+.rectangle {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 30%;
+    height: 100%;
+    background: #32126D;
+}
+
+.computer {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+
+.text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.highlighted-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #FFFFFF;
+}
+
+.inp {
+    border: 1px solid #656ED3;
+    border-radius: 1rem;
+    background-color: transparent;
+    outline: none;
+    color: #FFFFFF;
+    width: 100%;
+    height: 6%;
+}
+
+.sub_but {
+    background: #656ED3;
+    border-radius: 1rem;
+    outline: none;
+    border-color: transparent;
+    width: 100%;
+    height: 8%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.form {
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    width: 30%;
+    height: 60%;
+}
+
+.rectangle-2 {
+    position: absolute;
+    bottom: -15%;
+    left: -25%;
+    width: 45rem;
+    height: 10rem;
+    background: #AFB3FF;
+    border-radius: 105.53px;
+    transform: rotate(323deg);
+}
+
+.rectangle-3 {
+    position: absolute;
+    left: -47%;
+    bottom: -27.5%;
+    width: 66rem;
+    height: 10rem;
+    background: #838CF1;
+    border-radius: 105.53px;
+    transform: rotate(324deg);
+}
