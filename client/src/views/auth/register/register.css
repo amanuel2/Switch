@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;700&display=swap');
+
+
+.form_register {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    width: 30%;
+    height: 60%;
+}
+
+.desktop {
+    position: absolute;
+    bottom: 3%;
+    width: 40%;
+    left: 10%;
+}
+
+.rectangle4 {
+    position: absolute;
+    top: -11%;
+    left: -16%;
+    width: 66rem;
+    height: 19rem;
+    background: #AFB3FF;
+    border-radius: 105.53px;
+    transform: rotate(-90deg);
+}
+
+.rectangle5 {
+    position: absolute;
+    top: -11%;
+    left: -18%;
+    width: 66rem;
+    height: 20rem;
+    background: #656ED3;
+    border-radius: 105.53px;
+    transform: rotate(-97.17deg);
+}
+
+.err {
+    margin: 4px 0 0 0;
+    font-size: 13px;
+    color: #e64646;
+  }
