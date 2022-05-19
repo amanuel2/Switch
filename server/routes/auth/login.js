@@ -4,7 +4,7 @@ const { getAuth, signInWithEmailAndPassword } = require('firebase/auth')
 const express = require('express')
 const router = express.Router()
 
-
+// Lets user login to our application
 router.post('/', (req,res) => {
     const auth = getAuth();
     const {email, password} = req.body
@@ -21,7 +21,7 @@ router.post('/', (req,res) => {
         res.end();
     })
     .catch((error) => {
-        res.send(JSON.stringify({message : error.message, status : error.code}));
+        res.send(JSON.stringify({message : error.message, status : 444}));
         res.end();
     });
 

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+
+
+.stream_infos {
+    padding-top: 0.45rem;
+}
+
+.streamer_card_icon {
+    position: absolute;
+    width:  3.1rem;
+    height: 3.0rem;
+}
+
+.streamer_card_icon:hover {
+    cursor: pointer;
+}
+
+.streamer_card_name {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.73rem;
+    /* line-height: 2.3rem; */
+    color: #FFFFFF;
+    padding-left: 3.5rem;
+}
+
+.streamer_card_name:hover {
+    cursor: pointer;
+}
+
+.streamer_card_name::after {
+    content: "\a";
+    white-space: pre;
+}
+
+.streamer_card_views {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.615rem;
+    /* line-height: 4rem; */
+    color: #FFFFFF;
+    padding-left: 4.35rem;
+}
+
+.streamer_card_eye {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 3.45rem;
+    margin-top: 0.15rem;
+}
+
+.streamer_card_led {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 7.5rem;
+    margin-top: -1rem;
+}

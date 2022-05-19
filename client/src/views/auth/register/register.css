@@ -23,7 +23,7 @@
     width: 66rem;
     height: 19rem;
     background: #AFB3FF;
-    border-radius: 105.53px;
+    border-radius: 50rem;
     transform: rotate(-90deg);
 }
 
@@ -34,12 +34,15 @@
     width: 66rem;
     height: 20rem;
     background: #656ED3;
-    border-radius: 105.53px;
+    border-radius: 50rem;
     transform: rotate(-97.17deg);
 }
 
 .err {
-    margin: 4px 0 0 0;
-    font-size: 13px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.8rem;
+    line-height: 2rem;
     color: #e64646;
-  }
+}

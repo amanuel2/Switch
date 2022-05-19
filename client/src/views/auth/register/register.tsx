@@ -1,5 +1,8 @@
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
+import {register_submit} from '../util/submit'
+import { motion } from 'framer-motion';
+import verify from '../util/verify'
 import './register.css'
 
 
@@ -9,15 +12,21 @@ const Register = () => {
         username: '',
         password: '',
         confirmPassword: ''
-      });
-    
-      const [error, setError] = useState({
+    });
+
+    const [error, setError] = useState({
         username: '',
         password: '',
         confirmPassword: ''
-      })
+    })
 
-      let navigate = useNavigate()
+    let navigate = useNavigate()
+
+    verify().then(i=> {
+        navigate("/")
+    }).catch(e => {
+        console.error(e)
+    })
 
     const onInputChange = (e: React.FormEvent<HTMLInputElement>) => {
         const { name, value } = e.currentTarget;
@@ -77,39 +86,17 @@ const Register = () => {
         let pass : string = (document.getElementById('password') as HTMLInputElement).value;
         let conf : string = (document.getElementById('confirm') as HTMLInputElement).value;
 
-        // Send a post request to server
-        await fetch('http://localhost:5002/api/auth/register', {
-            method: 'POST', 
-            headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                'fullname': full,
-                'username': user,
-                'email':    emal,
-                'password': pass,
-                'confirm':  conf
-            })
-        }).then(res => {
-            res.json().then(i => {
-                if(i.status === 200) {
-                    navigate("/")
-                } else {
-                    console.log(i)
-                }
-            }).catch(e=> {
-                alert(e)
-                window.location.reload();
-            })
-        }).catch(err => {
-            alert(err)
-            window.location.reload();
-        });
-
+        // Register to firebase server
+        register_submit(full, user, emal, pass, conf)
     }
 
     return (
-        <div>
+        <motion.div
+            initial={{opacity:0}}
+            animate={{opacity:'100%'}}
+            exit={{opacity:0, transition:{duration:1}}}
+            transition={{duration:1, ease: "easeOut"}}
+        >
             <div className="rectangle5"></div>
             <div className="rectangle4"></div>
             <img className="desktop" alt="desktop" src={process.env.PUBLIC_URL + '/desktop.png'} />
@@ -129,7 +116,7 @@ const Register = () => {
                 <input className="sub_but" value="Sign Up" type="submit"/><br/><br/>
                 <p style={{textAlign:'center'}}><span className="text">Yes i have an account?</span> <span onClick={() => {navigate("/login")}} style={{cursor:'pointer'}}  className="highlighted-text">Login</span></p>
             </form>
-        </div>
+        </motion.div>
     )
 }
 

@@ -1,0 +1,28 @@
+
+
+.medium_avatar_img {
+    /* make a square container */
+    width:  3rem;
+    height: 3rem;
+
+    /* fill the container, preserving aspect ratio, and cropping to fit */
+    background-size: cover;
+
+    /* center the image vertically and horizontally */
+    background-position: top center;
+
+    /* round the edges to a circle with border radius 1/2 container size */
+    border-radius: 50%;
+
+    /* avatar round border */
+    box-shadow: 0 0 4px #999;
+}
+
+.medium_avatar_img:hover {
+    cursor: pointer;
+}
+
+.medium_avatar_img:active {
+    transform: translateY(0.02rem);
+}
+ 

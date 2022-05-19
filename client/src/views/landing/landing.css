@@ -1,0 +1,123 @@
+.rectangle1 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 15%;
+    height: 100%;
+    background: #32126D;
+}
+
+.polygon {
+    position: absolute;
+    top: 5.5%;
+    left: 9%;
+    width: 70%;
+    height: 17%;
+    background: rgba(188, 188, 188, 0.63);
+    mix-blend-mode: normal;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    filter: blur(25px);
+    border-radius: 15px;
+}
+
+.logo_dsh {
+    position: absolute;
+    top: 10%;
+    left: 19%;
+}
+
+.logo_dsh:hover{
+    cursor: pointer;
+}
+
+.dash_group_1 {
+    position: absolute;
+    top: 28%;
+    left: 18%;
+    width: 55.5%;
+}
+
+.categories {
+    position: absolute;
+    top: 37%;
+    left: 5%;
+    width: 70%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    gap: 1.37rem;
+}
+
+.line_landing {
+    position: absolute;
+    height: 0rem;
+    width: 10rem;
+    border: 1px solid #C4C4C4;
+    box-shadow: -1px 0px 4px #915EEF;
+    top: 70%;
+    left: 10%;
+}
+
+.streamer_cards {
+    position: absolute;
+    top: 73%;
+    left: 10%;
+    width: 75%;
+    height: 23%;
+}
+
+.streamer_card {
+    height: 27.3%;
+    margin-bottom: 1rem;
+}
+
+.rectangle2 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 85%;
+    height: 6%;
+    margin-left: 15%;
+    background: #32126D;
+}
+
+.small_avatar_pfp {
+    position: absolute;
+    top: 15%;
+    right: -1%;
+    margin-right: 4%;
+}
+
+.rectangle3 {
+    position: absolute;
+    top: 6%;
+    left: 15%;
+    width: 85%;
+    height: 96%;
+}
+
+.rectangle6 {
+    position: absolute;
+    top: 2%;
+    left: 85%;
+    width: 10%;
+    height: 40%;
+    background: #272727;
+}
+
+.menu_items_org {
+    position: absolute;
+    top: 2%;
+    left: 6%;
+}
+
+.login_landing {
+    position: absolute;
+    top: 15%;
+    right: 7%;
+}

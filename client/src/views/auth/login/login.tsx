@@ -1,11 +1,19 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
+import { motion } from 'framer-motion';
+import {login_submit} from '../util/submit'
+import verify from '../util/verify'
 import './login.css'
 
 
 const Login = () => {
     let navigate = useNavigate()
 
+    verify().then(i=> {
+        navigate("/")
+    }).catch(e => {
+        console.error(e)
+    })
 
     const submit = async (event: React.FormEvent<HTMLFormElement>) => {
         // Preventing the page from reloading
@@ -14,33 +22,17 @@ const Login = () => {
         let emal : string = (document.getElementById('email') as HTMLInputElement).value;
         let pass : string = (document.getElementById('password') as HTMLInputElement).value;
 
-         // Send a post request to server
-         await fetch('http://localhost:5002/api/auth/login', {
-            method: 'POST', 
-            headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                'email':    emal,
-                'password': pass,
-            })
-        }).then(res => {
-            res.json().then(i => {
-                if(i.status === 200) {
-                    navigate("/")
-                }
-            }).catch(e=> {
-                alert(e)
-                window.location.reload();
-            })
-        }).catch(err => {
-            alert(err)
-            window.location.reload();
-        });
+        // Login to firebase server
+        login_submit(emal, pass)
     }
 
     return (
-        <div>
+        <motion.div
+                initial={{opacity:0}}
+                animate={{opacity:'100%'}}
+                exit={{opacity:0, transition:{duration:1}}}
+                transition={{duration:1, ease: "easeOut"}}
+            >
             <div className="rectangle"></div>
             <img className="computer" alt="computer" src={process.env.PUBLIC_URL + '/computer.png'} />
             <form className="form" onSubmit={submit}>
@@ -54,7 +46,7 @@ const Login = () => {
             </form>
             <div className="rectangle-3"></div>
             <div className="rectangle-2"></div>
-        </div>
+        </motion.div>
     )
 }
 

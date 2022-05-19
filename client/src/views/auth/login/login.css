@@ -19,8 +19,8 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 200;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 1rem;
+    line-height: 1.188rem;
     color: #FFFFFF;
 }
 
@@ -28,14 +28,13 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-
+    font-size: 1rem;
+    line-height: 1.188rem;
     color: #FFFFFF;
 }
 
 .inp {
-    border: 1px solid #656ED3;
+    border: 0.05rem solid #656ED3;
     border-radius: 1rem;
     background-color: transparent;
     outline: none;
@@ -55,8 +54,8 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 1rem;
+    line-height: 1.188rem;
     color: #FFFFFF;
 }
 
@@ -66,7 +65,7 @@
 }
 
 .sub_but:active {
-    transform: translateY(1px);
+    transform: translateY(0.05rem);
 }
 
 .form {
@@ -84,7 +83,7 @@
     width: 45rem;
     height: 10rem;
     background: #AFB3FF;
-    border-radius: 105.53px;
+    border-radius: 50rem;
     transform: rotate(323deg);
 }
 
@@ -95,6 +94,6 @@
     width: 66rem;
     height: 10rem;
     background: #838CF1;
-    border-radius: 105.53px;
+    border-radius: 50rem;
     transform: rotate(324deg);
 }
