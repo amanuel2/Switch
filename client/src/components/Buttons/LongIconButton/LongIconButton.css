@@ -1,0 +1,33 @@
+
+.long_icon_button {
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    width: 32%;
+    height: 10%;
+    text-indent: 2rem;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    padding-top: 0.55rem;
+    padding-bottom: 0.3rem;
+}
+
+.log_icon_button_start {
+    position: absolute;
+    width: 0.8rem;
+    height: 0.8rem;
+    top: 38%;
+    left: 2%;
+}
+
+.log_icon_button_end {
+    position: absolute;
+    width: 0.8rem;
+    height: 0.8rem;
+    top: 38%;
+    left: 28%;
+}

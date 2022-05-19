@@ -1,10 +1,6 @@
 'use strict';
 
 const { getAuth } = require("firebase/auth");
-
-
-
-
 const express = require('express')
 const router = express.Router()
 
@@ -12,10 +8,14 @@ router.post('/', (req,res) => {
     const auth = getAuth();
     const user = auth.currentUser;
 
-    const displayName = user.displayName;
-    const email = user.email;
-    const photoURL = user.photoURL;
-    const uid = user.uid;
+    let {displayName, email, photoURL, uid} = ["","","",""]
+
+    if(user){
+        displayName = user.displayName;
+        email = user.email;
+        photoURL = user.photoURL;
+        uid = user.uid;
+    }
 
       
     res.set({

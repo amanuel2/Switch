@@ -10,7 +10,7 @@ const AnimatedRoutes = () => {
     const location = useLocation()
 
     return (
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Landing/>}/>
                 <Route path="/login" element={<Login/>}/>

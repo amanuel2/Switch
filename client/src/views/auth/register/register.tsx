@@ -1,8 +1,8 @@
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
-import {register_submit} from '../util/submit'
+import {register_submit} from '../../../util/auth/submit'
 import { motion } from 'framer-motion';
-import verify from '../util/verify'
+import verify from '../../../util/auth/verify'
 import './register.css'
 
 

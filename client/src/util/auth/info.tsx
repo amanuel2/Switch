@@ -1,4 +1,6 @@
 
+import { userType } from '../../types/landing/index'
+
 const getUserInfo = async () => {
     const rr = await fetch('http://localhost:5002/api/user/info', {
         method: 'POST', 
@@ -7,7 +9,7 @@ const getUserInfo = async () => {
             "Access-Control-Allow-Origin": "*"
         }
     })
-    const info = await rr.json()
+    const info: userType = await rr.json()
     
     return new Promise((res,rej) => {
         if(info) res(info)

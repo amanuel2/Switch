@@ -2,38 +2,30 @@ import { useState, useEffect } from 'react';
 import './landing.css'
 import { motion } from 'framer-motion';
 import {useNavigate} from 'react-router-dom'
-import Button1 from '../../components/Button1/Button1'
+import Button1 from '../../components/Buttons/Button1/Button1'
+import LongIconButton from '../../components/Buttons/LongIconButton/LongIconButton'
+import StreamButton from '../../components/Buttons/StreamButton/StreamButton'
 import ListInactive from '../../components/List/ListInactive'
 import StreamerCard from '../../components/Cards/StreamerCard'
-import verify from '../auth/util/verify'
-import getUserInfo from '../auth/util/info'
-import {games_icon, champ_icon, chat_icon, music_icon, royale_icon, student_icon, nelson, streamer_1, streamer_2, streamer_3, profile_icon,creator_icon,friends_icon,star_icon,wallet_icon,settings_icon,help_icon,feedback_icon,login_icon,logout_icon} from './public/images' 
+import verify from '../../util/auth/verify'
+import getUserInfo from '../../util/auth/info'
+import {games_icon, champ_icon, chat_icon, music_icon, royale_icon, student_icon, streamer_1, streamer_2, streamer_3, profile_icon,creator_icon,friends_icon,star_icon,wallet_icon,settings_icon,help_icon,feedback_icon,login_icon,logout_icon, search_icon,adjust_search_icon} from './public/images' 
 import SmallAvatar from '../../components/Avatar/SmallAvatar';
 import ListMenuItems from '../../components/List/ListMenuItems'
-import { logout_submit } from '../auth/util/submit'
-import { AnimatePresence } from 'framer-motion';
+import { activeType } from '../../types/landing/index'
+import { logout_submit } from '../../util/auth/submit'
+import { AnimatePresence } from 'framer-motion'
+
 
 
 const Landing = () => {
 
     const [is_auth, set_auth]  = useState(false);
     const [active, set_active] = useState({'space':false, 'games_button':false, 'menu_overlay':false})
-    const [user, set_user]  = useState({'displayName': "", 'email':"", 'photoUrl':"", "uid":""})
+    const [user, set_user]     = useState({'displayName': "initial", 'email':"", 'photoURL':"", "uid":""})
 
     let navigate = useNavigate()
 
-    type activeType = {
-        space: boolean,
-        games_button: boolean,
-        menu_overlay: boolean
-    }
-
-    type userType = {
-        displayName: string
-        email: string
-        photoURL: string
-        uid: string
-    }
 
     const active_default: activeType = {
         'space': false,
@@ -49,13 +41,13 @@ const Landing = () => {
         })
     }
 
-    // const check_user = () => {
-    //     getUserInfo().then(i=> {
-    //         set_user({value:i})
-    //     }).catch(e=> {
-    //         set_user({})
-    //     })
-    // }
+    const check_user = () => {
+        getUserInfo().then(i=> {
+            set_user({...user, ...i as object})
+        }).catch(e=> {
+            set_user({...user})
+        })
+    }
 
     const new_active = (item: string, act=false) => {
         for(const prop in active_default){
@@ -68,7 +60,7 @@ const Landing = () => {
 
     useEffect(() => {
         check_auth();
-        // check_user();
+        check_user();
     }, []);
 
     const empty = () => {}
@@ -81,7 +73,6 @@ const Landing = () => {
             exit={{opacity:0}}
             transition={{ duration: 1 }}
             >
-            {/* <h2>{user['photoURL']}</h2> */}
             <div className="rectangle1">
                 <div className="polygon"></div>
                 <img className="logo_dsh" onClick={()=>{new_active("space"); navigate("/")}} alt="logo_dsh" src={process.env.PUBLIC_URL + '/Logo_Dashboard.png'} />
@@ -102,15 +93,25 @@ const Landing = () => {
             </div>
             <div className="rectangle2">
                 {is_auth === true ? 
-                    <div className="small_avatar_pfp" onClick={()=>active.menu_overlay?new_active("menu_overlay"):new_active("menu_overlay", true)}>
-                        <SmallAvatar alt="user_pfp" src={nelson}/>
+                    <div>
+                        <div className="stream_landing_button"><StreamButton/></div>
+                        <div className="small_avatar_pfp" onClick={()=>active.menu_overlay?new_active("menu_overlay"):new_active("menu_overlay", true)}>
+                            <SmallAvatar alt="user_pfp" src={user.photoURL}/>
+                        </div>
                     </div> : 
-                    <div className="login_landing" onClick={()=>navigate("/login")}>
-                        <Button1 name="Login" icon={login_icon} textColor="white" buttonColor="#49238d" top="25%" left="12%"/>
+                    <div>
+                        <div className="login_landing" onClick={()=>navigate("/login")} ><Button1 name="Login" icon={login_icon} textColor="white" buttonColor="#5a25b9" top="25%" left="12%"/></div>
                     </div>
                 }
             </div>
-            <div className="rectangle3">
+            <div className="rectangle3" onClick={()=>set_active({...active_default})}>
+                <div className="rectangle7">
+                    <div className="landing_title"><span className="landing_title_name">Games</span> <div  style={{display:'inline'}}className="landing_title_icon_button"><LongIconButton placeholder="Search" icon_start={search_icon} icon_end={adjust_search_icon} buttonColor="#5225A5" textColor="#CCCCCC" paddingLeft="1rem"/></div></div>
+                    <div className="landing_title2"><span className="landing_title_name">Streamers</span> <div  style={{display:'inline'}}className="landing_title_icon_button"><LongIconButton placeholder="Search" icon_start={search_icon} icon_end={adjust_search_icon} buttonColor="#5225A5" textColor="#CCCCCC" paddingLeft="1rem"/></div></div>
+                    <div className="landing_title3"><span className="landing_title_name">Fun Events</span> <div  style={{display:'inline'}}className="landing_title_icon_button"><LongIconButton placeholder="Search" icon_start={search_icon} icon_end={adjust_search_icon} buttonColor="#5225A5" textColor="#CCCCCC" paddingLeft="1rem"/></div></div>
+                </div>
+
+
                 <AnimatePresence>
                     {active.menu_overlay && (<motion.div key="box" className="rectangle6"
                             initial={{y:'50%', opacity:0, scale:0.5}}

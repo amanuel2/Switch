@@ -121,3 +121,45 @@
     top: 15%;
     right: 7%;
 }
+
+.stream_landing_button {
+    position: absolute;
+    top: -10%;
+    right: 9%;
+}
+
+.rectangle7 {
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    width: 100%;
+    height: 93%;
+}
+
+.landing_title {
+    position: absolute;
+    left: 5%;
+    width: 50%;
+}
+
+.landing_title_name {
+    color: #FFFFFF;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.55rem;
+}
+
+.landing_title2 {
+    position: absolute;
+    left: 5%;
+    width: 50%;
+    top:40%;
+}
+
+.landing_title3 {
+    position: absolute;
+    left: 5%;
+    width: 50%;
+    top:80%;
+}

@@ -18,6 +18,8 @@ import help_icon from './help_icon.png'
 import feedback_icon from './feedback_icon.png'
 import logout_icon   from './logout_icon.png'
 import login_icon    from './login_icon.png'
+import search_icon   from './search_icon.png'
+import adjust_search_icon from './adjust_search_icon.png'
 
 export {
         games_icon,
@@ -39,5 +41,7 @@ export {
         help_icon,
         feedback_icon,
         login_icon,
-        logout_icon
+        logout_icon,
+        search_icon,
+        adjust_search_icon
 }

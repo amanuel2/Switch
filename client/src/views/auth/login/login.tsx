@@ -1,10 +1,9 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import { motion } from 'framer-motion';
-import {login_submit} from '../util/submit'
-import verify from '../util/verify'
+import { login_submit } from '../../../util/auth/submit'
+import verify from '../../../util/auth/verify'
 import './login.css'
-
 
 const Login = () => {
     let navigate = useNavigate()
@@ -15,7 +14,8 @@ const Login = () => {
         console.error(e)
     })
 
-    const submit = async (event: React.FormEvent<HTMLFormElement>) => {
+
+    const Submit = async (event: React.FormEvent<HTMLFormElement>) => {
         // Preventing the page from reloading
         event.preventDefault();
 
@@ -35,7 +35,7 @@ const Login = () => {
             >
             <div className="rectangle"></div>
             <img className="computer" alt="computer" src={process.env.PUBLIC_URL + '/computer.png'} />
-            <form className="form" onSubmit={submit}>
+            <form className="form" onSubmit={Submit}>
                 <p className="highlighted-text" style={{textAlign:'center'}}><strong>Welcome Back!</strong></p><br/>
                 <p className="text"> Email: </p>
                 <input id="email" className="inp" type="email" required/>

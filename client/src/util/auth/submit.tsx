@@ -41,7 +41,8 @@ const login_submit = async (emal: string, pass: string) => {
             'email':    emal,
             'password': pass,
         })
-        }).then(res => {
+    })
+        .then(res => {
             res.json().then(i => {
                 if(i.status === 200) {
                     window.location.reload();
