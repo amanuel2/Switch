@@ -20,6 +20,7 @@ import logout_icon   from './logout_icon.png'
 import login_icon    from './login_icon.png'
 import search_icon   from './search_icon.png'
 import adjust_search_icon from './adjust_search_icon.png'
+import video_icon from './video_icon.svg'
 
 export {
         games_icon,
@@ -43,5 +44,6 @@ export {
         login_icon,
         logout_icon,
         search_icon,
-        adjust_search_icon
+        adjust_search_icon,
+        video_icon
 }

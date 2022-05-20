@@ -9,7 +9,7 @@ import ListInactive from '../../components/List/ListInactive'
 import StreamerCard from '../../components/Cards/StreamerCard'
 import verify from '../../util/auth/verify'
 import getUserInfo from '../../util/auth/info'
-import {games_icon, champ_icon, chat_icon, music_icon, royale_icon, student_icon, streamer_1, streamer_2, streamer_3, profile_icon,creator_icon,friends_icon,star_icon,wallet_icon,settings_icon,help_icon,feedback_icon,login_icon,logout_icon, search_icon,adjust_search_icon} from './public/images' 
+import {games_icon, champ_icon, chat_icon, music_icon, royale_icon, student_icon, streamer_1, streamer_2, streamer_3, profile_icon,creator_icon,friends_icon,star_icon,wallet_icon,settings_icon,help_icon,feedback_icon,login_icon,logout_icon, search_icon,adjust_search_icon,video_icon} from './public/images' 
 import SmallAvatar from '../../components/Avatar/SmallAvatar';
 import ListMenuItems from '../../components/List/ListMenuItems'
 import { activeType } from '../../types/landing/index'
@@ -76,7 +76,7 @@ const Landing = () => {
             <div className="rectangle1">
                 <div className="polygon"></div>
                 <img className="logo_dsh" onClick={()=>{new_active("space"); navigate("/")}} alt="logo_dsh" src={process.env.PUBLIC_URL + '/Logo_Dashboard.png'} />
-                <div className="dash_group_1" onClick={()=>new_active("games_button",true)}><Button1 name="Games" icon={games_icon} textColor="#32126D" buttonColor="white" top="20%" left="11%"/></div>
+                <div className="dash_group_1" onClick={()=>new_active("games_button",true)}><Button1 name="Games" icon={games_icon} textColor="#32126D" buttonColor="white" top="20%" left="11%" fontWeight="400"/></div>
                 <div className="categories">
                     <ListInactive name="ESports" icon={champ_icon}/>
                     <ListInactive name="Music" icon={music_icon}/>
@@ -94,13 +94,13 @@ const Landing = () => {
             <div className="rectangle2">
                 {is_auth === true ? 
                     <div>
-                        <div className="stream_landing_button"><StreamButton/></div>
+                        <div className="stream_landing_button"><Button1 name="Go Live" icon={video_icon} textColor="black" buttonColor="white" top="13%" left="8%" fontWeight="500"/></div>
                         <div className="small_avatar_pfp" onClick={()=>active.menu_overlay?new_active("menu_overlay"):new_active("menu_overlay", true)}>
                             <SmallAvatar alt="user_pfp" src={user.photoURL}/>
                         </div>
                     </div> : 
                     <div>
-                        <div className="login_landing" onClick={()=>navigate("/login")} ><Button1 name="Login" icon={login_icon} textColor="white" buttonColor="#5a25b9" top="25%" left="12%"/></div>
+                        <div className="login_landing" onClick={()=>navigate("/login")} ><Button1 name="Login" icon={login_icon} textColor="white" buttonColor="#5a25b9" top="25%" left="12%" fontWeight="400"/></div>
                     </div>
                 }
             </div>

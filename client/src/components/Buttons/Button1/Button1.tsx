@@ -7,12 +7,13 @@ type ButtonProps = {
     buttonColor: string,
     textColor: string,
     top: string,
-    left: string
+    left: string,
+    fontWeight: string
 }
 
-const Button1 = ({name, icon, buttonColor, textColor, top, left}: ButtonProps) => {
+const Button1 = ({name, icon, buttonColor, textColor, top, left, fontWeight}: ButtonProps) => {
     return (
-        <button className="button_1" style={{color: textColor, backgroundColor: buttonColor}}>
+        <button className="button_1" style={{color: textColor, backgroundColor: buttonColor, fontWeight: fontWeight}}>
             <span style={{backgroundImage: `url(${icon})`, backgroundRepeat: 'no-repeat', top:top, left:left}} className="button_1_icon"></span>
             {name}
         </button>
