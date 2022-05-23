@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import {useNavigate} from 'react-router-dom'
 import Button1 from '../../components/Buttons/Button1/Button1'
 import LongIconButton from '../../components/Buttons/LongIconButton/LongIconButton'
-import StreamButton from '../../components/Buttons/StreamButton/StreamButton'
 import ListInactive from '../../components/List/ListInactive'
 import StreamerCard from '../../components/Cards/StreamerCard'
 import verify from '../../util/auth/verify'
@@ -75,8 +74,16 @@ const Landing = () => {
             >
             <div className="rectangle1">
                 <div className="polygon"></div>
-                <img className="logo_dsh" onClick={()=>{new_active("space"); navigate("/")}} alt="logo_dsh" src={process.env.PUBLIC_URL + '/Logo_Dashboard.png'} />
-                <div className="dash_group_1" onClick={()=>new_active("games_button",true)}><Button1 name="Games" icon={games_icon} textColor="#32126D" buttonColor="white" top="20%" left="11%" fontWeight="400"/></div>
+                {/* <img className="logo_dsh" onClick={()=>{new_active("space"); navigate("/")}} 
+                alt="logo_dsh" src={process.env.PUBLIC_URL + '/Logo_Dashboard.png'} /> */}
+                <motion.img 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={()=>navigate("/")}
+                    className="logo_dsh"
+                    alt="logo_dsh"
+                    src={process.env.PUBLIC_URL + '/Logo_Dashboard.png'} />
+                <div className="dash_group_1" onClick={()=>new_active("games_button",true)}><Button1 name="Games" icon={games_icon} textColor="#32126D" buttonColor="white" top="20%" left="11%" fontWeight="400" rippleColor="white"/></div>
                 <div className="categories">
                     <ListInactive name="ESports" icon={champ_icon}/>
                     <ListInactive name="Music" icon={music_icon}/>
@@ -94,13 +101,13 @@ const Landing = () => {
             <div className="rectangle2">
                 {is_auth === true ? 
                     <div>
-                        <div className="stream_landing_button"><Button1 name="Go Live" icon={video_icon} textColor="black" buttonColor="white" top="13%" left="8%" fontWeight="500"/></div>
+                        <div className="stream_landing_button" onClick={()=>navigate("/dashboard")}><Button1 name="Go Live" icon={video_icon} textColor="white" buttonColor="#FF2400" top="13%" left="8%" fontWeight="500" rippleColor="#FF2400"/></div>
                         <div className="small_avatar_pfp" onClick={()=>active.menu_overlay?new_active("menu_overlay"):new_active("menu_overlay", true)}>
                             <SmallAvatar alt="user_pfp" src={user.photoURL}/>
                         </div>
                     </div> : 
                     <div>
-                        <div className="login_landing" onClick={()=>navigate("/login")} ><Button1 name="Login" icon={login_icon} textColor="white" buttonColor="#5a25b9" top="25%" left="12%" fontWeight="400"/></div>
+                        <div className="login_landing" onClick={()=>navigate("/login")} ><Button1 name="Login" icon={login_icon} textColor="white" buttonColor="#5a25b9" top="25%" left="12%" fontWeight="400" rippleColor="white"/></div>
                     </div>
                 }
             </div>
@@ -123,7 +130,7 @@ const Landing = () => {
                                 <ListMenuItems 
                                     items={["Profile", "Dashboard", "Friends", "Subscriptions", "Wallet", "Settings", "Help", "Feedback", "Logout"]}
                                     icons={[profile_icon, creator_icon, friends_icon, star_icon, wallet_icon, settings_icon, help_icon, feedback_icon, logout_icon]}
-                                    fns={[empty,empty,empty,empty,empty,empty,empty,empty,logout_submit]}
+                                    fns={[empty,()=>navigate("/dashboard"),empty,empty,empty,empty,empty,empty,logout_submit]}
                                 /></div>
                             </motion.div>
                     )}

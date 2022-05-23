@@ -97,3 +97,19 @@
     border-radius: 50rem;
     transform: rotate(324deg);
 }
+
+.third-party-auth {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.third-party-auth {
+    display: flex;
+    gap: 0.5rem;
+    align-content: center;
+    justify-content: center;
+}
+
+.third-party-auth img {
+    cursor: pointer;
+}

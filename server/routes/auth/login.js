@@ -17,7 +17,7 @@ router.post('/', (req,res) => {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         const user = userCredential.user;
-        res.send(JSON.stringify({message : "Updated Successfully", status : 200}));
+        res.send(JSON.stringify({message : "Logged in Successfully", status : 200}));
         res.end();
     })
     .catch((error) => {

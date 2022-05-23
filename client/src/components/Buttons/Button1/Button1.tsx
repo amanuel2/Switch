@@ -1,5 +1,7 @@
 import { motion } from "framer-motion"
 import './Button1.css'
+import React from 'react';
+
 
 type ButtonProps = {
     name: string,
@@ -8,12 +10,16 @@ type ButtonProps = {
     textColor: string,
     top: string,
     left: string,
-    fontWeight: string
+    fontWeight: string,
+    rippleColor: string
 }
 
-const Button1 = ({name, icon, buttonColor, textColor, top, left, fontWeight}: ButtonProps) => {
+const styles = {
+
+}
+const Button1 = ({name, icon, buttonColor, textColor, top, left, fontWeight, rippleColor}: ButtonProps) => {
     return (
-        <button className="button_1" style={{color: textColor, backgroundColor: buttonColor, fontWeight: fontWeight}}>
+        <button className="button_1" style={ { "--text-color": `${textColor}`, '--button-color':`${buttonColor}`, '--weight':`${fontWeight}`, '--ripple-color':`${rippleColor}` } as React.CSSProperties}>
             <span style={{backgroundImage: `url(${icon})`, backgroundRepeat: 'no-repeat', top:top, left:left}} className="button_1_icon"></span>
             {name}
         </button>
